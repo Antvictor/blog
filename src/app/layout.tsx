@@ -26,7 +26,7 @@ const RootLayout = ({children}: React.PropsWithChildren) => {
   const item: MenuItemType =[
     {
       label: "首页",
-      key: "main",
+      key: "/",
       itemStyle: {styles}
     },
     {
@@ -44,7 +44,7 @@ const RootLayout = ({children}: React.PropsWithChildren) => {
           <Col span={10}>
             <HomeOutlined style={{fontSize: "24px", height:"60px", paddingLeft: "20px"}}
               onClick={() => {
-                router.push("main");
+                router.push("/");
               }}
             />
           </Col>
