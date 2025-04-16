@@ -39,8 +39,8 @@ const RootLayout = ({children}: React.PropsWithChildren) => {
   return(
   <html lang="en">
     <body>
-      <AntdRegistry>
-        <Row>
+      {/* <AntdRegistry> */}
+        <Row style={{height: '100%', width: '100%', background: '#ffffff'}}>
           <Col span={10}>
             <HomeOutlined style={{fontSize: "24px", height:"60px", paddingLeft: "20px"}}
               onClick={() => {
@@ -54,7 +54,7 @@ const RootLayout = ({children}: React.PropsWithChildren) => {
           </Col>
         </Row>
         {children}
-      </AntdRegistry>  
+      {/* </AntdRegistry>    */}
     </body>
   </html>)
 };

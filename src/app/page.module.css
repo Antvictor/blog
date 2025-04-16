@@ -15,7 +15,10 @@
   gap: 64px;
   font-family: var(--font-geist-sans);
 }
-
+.main_style {
+  padding: 100px 0;
+  /* background: #ffffff; */
+}
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
