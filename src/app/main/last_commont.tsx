@@ -2,6 +2,7 @@ import { List } from "antd";
 import { useEffect, useState } from "react";
 import { LastComment } from "../api/comment/last/route";
 import { getLastComment } from "@/services/comment";
+
 export default function LastComments({...className}) {
     const [data, setData] = useState<LastComment[]>();
     useEffect(() => {

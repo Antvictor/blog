@@ -1,6 +1,6 @@
 "use client"
 
-import { Avatar, Card, Col, Layout, Row } from "antd";
+import { Avatar, Card, Col, Divider, Layout, Row } from "antd";
 import Sider from "antd/es/layout/Sider";
 import Link from "next/link";
 import {  EllipsisOutlined,  GithubOutlined, GoogleOutlined,  MenuFoldOutlined,  } from "@ant-design/icons";
@@ -10,6 +10,7 @@ import { Content } from "antd/es/layout/layout";
 import LastComments from "./main/last_commont";
 import page from "./page.module.css"
 import MarkdownView from "./article/info/markdown_view";
+import AritleBlock from "./main/article_block";
 
 const siderType: React.CSSProperties = {
   textAlign: "center",
@@ -70,11 +71,19 @@ return(
         </Col>
         <Col span={17} >
         <Content >
-          <div style={{paddingLeft: '20%', paddingRight: '20%', paddingBottom:'10px', background: "#ffffff"}}>
-          <MarkdownView content={`# 你好
-- 这是列表
-\`\`\`tsx\n<MarkdownView/>\n\`\`\``} />
-        </div>
+          <div style={{paddingLeft: '20%', paddingRight: '20%',  background: "#ffffff"}}>
+            <AritleBlock id="123" author="ant" createTime="2025-04-17" tags={['a','b']} previewTime={6}
+            title="Nacos安装"
+            content={`## 安装
+123123123123123123123123
+123123123123123123123123
+123123123123123123123123
+123123123123123123123123
+遮挡遮挡遮挡`} />
+<Divider orientation="left"/>
+          </div>
+          <Divider/>
+          
         </Content>
         </Col>
         <Col span={4} className={page.main_style}>
