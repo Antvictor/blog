@@ -72,10 +72,10 @@ return(
         <Col span={17} >
         <Content >
           <div style={{paddingLeft: '20%', paddingRight: '20%',  background: "#ffffff"}}>
-            <AritleBlock id="123" author="ant" createTime="2025-04-17" tags={['a','b']} previewTime={6}
+            <AritleBlock id="123" author="ant" createTime="2025-04-17" tags={['a','bb']} previewTime={6}
             title="Nacos安装"
             content={`## 安装
-123123123123123123123123
+123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123456456
 123123123123123123123123
 123123123123123123123123
 123123123123123123123123

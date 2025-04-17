@@ -30,8 +30,9 @@ export default function AritleBlock({title, createTime, tags, content, previewTi
         e.stopPropagation();
         router.push(`/aritle/info/${id}`);
       }}>
+        <h1>{title}</h1>
         <p>
-            <h1>{title}</h1>
+            
             <span style={{marginRight: '10px', color: "rgba(197,197,197)"}}>作者：{author}</span>
             <span style={{marginRight: '10px', color: "rgba(197,197,197)"}}>创建时间：{createTime}</span>
             <span style={{marginRight: '10px', color: "rgba(197,197,197)"}}>预计预览时间：{previewTime} 分钟</span>
