@@ -8,7 +8,9 @@ import 'highlight.js/styles/atom-one-dark.css';
 interface Props{
     content: string
 }
-
+const handleDivClick = (e:React.MouseEvent) => {
+    e.stopPropagation();
+}
 const md = new MarkdownIt("default",
     
      {html: true,
@@ -39,6 +41,7 @@ export default function MarkdownView({content}: Props) {
         <div 
             className='morkdown-content'
             dangerouslySetInnerHTML={{__html: render}}
+            onClick={handleDivClick}
         />
     );
 }

@@ -4,7 +4,7 @@ import './aritle_block.moudle.css'
 import MarkdownView from "../article/info/markdown_view";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
-type AritleBlock = ({
+export type AritleInfos = ({
     title: string,
     createTime: string,
     tags: string[],
@@ -14,7 +14,7 @@ type AritleBlock = ({
     id: string
 
 });
-export default function AritleBlock({title, createTime, tags, content, previewTime, author,id }: AritleBlock) {
+export default function AritleBlock({title, createTime, tags, content, previewTime, author,id }: AritleInfos) {
      // 定义颜色数组
   const colors = [
     'magenta', 'red', 'volcano', 'orange', 'gold', 
@@ -48,6 +48,7 @@ export default function AritleBlock({title, createTime, tags, content, previewTi
                 <MarkdownView content={content} />
             </div>
         </div>
+        <Divider/>
       </Col>  
     );
 }

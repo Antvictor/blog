@@ -1,7 +1,6 @@
 "use client"
 
-import { Avatar, Card, Col, Divider, Layout, Row } from "antd";
-import Sider from "antd/es/layout/Sider";
+import { Avatar, Card, Col,  Layout, Row } from "antd";
 import Link from "next/link";
 import {  EllipsisOutlined,  GithubOutlined, GoogleOutlined,  MenuFoldOutlined,  } from "@ant-design/icons";
 import Meta from "antd/es/card/Meta";
@@ -9,8 +8,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { Content } from "antd/es/layout/layout";
 import LastComments from "./main/last_commont";
 import page from "./page.module.css"
-import MarkdownView from "./article/info/markdown_view";
-import AritleBlock from "./main/article_block";
+import BlockList from "./main/block_list";
+import type { AritleInfos } from "./main/article_block";
+import { getAritleList } from "@/services/aritle";
 
 const siderType: React.CSSProperties = {
   textAlign: "center",
@@ -24,6 +24,7 @@ const siderType: React.CSSProperties = {
 }
 
 const Main = () => {
+    const [aritleList, setAritleList] = useState<AritleInfos[]>([])
     const [collapsed, setCollapsed] = useState(false);
     const [cardHeight, setCardHeight] = useState(0);
     const cardRef = useRef<HTMLDivElement>(null);
@@ -32,6 +33,7 @@ const Main = () => {
         console.log(cardRef.current)
         setCardHeight(cardRef.current.offsetHeight);
       }
+      getAritleList().then((res) => {setAritleList(res.data)});
     },[])
 return(
     <Layout >
@@ -71,19 +73,7 @@ return(
         </Col>
         <Col span={17} >
         <Content >
-          <div style={{paddingLeft: '20%', paddingRight: '20%',  background: "#ffffff"}}>
-            <AritleBlock id="123" author="ant" createTime="2025-04-17" tags={['a','bb']} previewTime={6}
-            title="Nacos安装"
-            content={`## 安装
-123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123456456
-123123123123123123123123
-123123123123123123123123
-123123123123123123123123
-遮挡遮挡遮挡`} />
-<Divider orientation="left"/>
-          </div>
-          <Divider/>
-          
+          <BlockList list={aritleList}/>
         </Content>
         </Col>
         <Col span={4} className={page.main_style}>
