@@ -1,61 +1,36 @@
-"use client"
-import React, { useState} from "react";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { Menu, Row, Col } from 'antd';
-import type { MenuProps } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
-import { MenuItemType } from "antd/es/menu/interface";
-import { useRouter } from "next/navigation";
-
-
-const styles: React.CSSProperties = {
-  width: 20,
+// layout.tsx
+export const metadata = {
+  title: "代码旅途",
+  description: '用来分享一些代码/个人想法/经验/小说等内容的小店',
 }
 
+import React from "react";
+import { Row, Col } from 'antd';
+import { HomeIcon } from "./components/HomeIcon";
+import { MainMenu } from "./components/MainMenu";
+import ICPFooter from "./components/Footer";
+
 const RootLayout = ({children}: React.PropsWithChildren) => {
-  const router = useRouter();
-  const [current, setCurrent] = useState('main');
-
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-    router.push(e.key);
-  };
-
-
-  const item: MenuItemType =[
-    {
-      label: "首页",
-      key: "/",
-      itemStyle: {styles}
-    },
-    {
-      label: "分类",
-      key: "category",
-      itemStyle: {styles}
-    }
-  ].filter(Boolean)
-
-  return(
-  <html lang="en">
-    <body>
-      {/* <AntdRegistry> */}
-        <Row style={{height: '100%', width: '100%', background: '#ffffff'}}>
+  return (
+    <html lang="en">
+      <body>
+        <Row  style={{height: '100%', width: '100%', background: '#ffffff'}}>
           <Col span={10}>
-            <HomeOutlined style={{fontSize: "24px", height:"60px", paddingLeft: "20px"}}
-              onClick={() => {
-                router.push("/");
-              }}
-            />
+            <HomeIcon />
           </Col>
+
           <Col span={14}>
-          <Menu  style={{ fontSize: "18px", height: "60px" }} 
-             onClick={onClick} selectedKeys={[current]} mode="horizontal" items={item}></Menu>
+            <MainMenu />
           </Col>
         </Row>
+        {/* 渲染子内容 */}
         {children}
-      {/* </AntdRegistry>    */}
-    </body>
-  </html>)
+        
+        <ICPFooter/>
+        
+      </body>
+    </html>
+  );
 };
+
 export default RootLayout;
